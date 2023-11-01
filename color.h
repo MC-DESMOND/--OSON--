@@ -21,4 +21,11 @@
 #define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
 
+//example
+
+void example(){
+  printf("%sthis is red\n%s",RED,RESET)}
+
+// ! THIS IS A HEADER FILE CALL example AT MAIN FILE
+
 #endif
