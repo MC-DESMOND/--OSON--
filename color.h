@@ -50,35 +50,57 @@
 #define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
 
+//PRINTING
+
+void p(const char *text){
+    printf("%s",text);}
+
+//PRETTY PRINT
+
+void pprint(const char *format
+            ,const char *MODE){
+    printf("%s%s%s",MODE,format,RESET);
+}
+
+// FUSING FONT AND COLOR
+
+void cprint(const char *format,
+            const char*color,
+            const char *font)
+ {
+    p(color);
+    printf("%s%s%s",font,format,RESET);
+ }
+
 // EXAMPLE
 void Example(){
-    printf("\n\tCOLORED TEXT  %s\n\n",RESET);
-    printf("\t%sRED       %s\n"    ,RED,RESET);
-    printf("\t%sGREEN     %s\n"  ,GREEN,RESET);
-    printf("\t%sYELLOW    %s\n" ,YELLOW,RESET);
-    printf("\t%sMAGENTA   %s\n",MAGENTA,RESET);
-    printf("\t%sCYAN      %s\n\n"   ,CYAN,RESET);
+    pprint("\n\tCOLORED TEXT  \n\n",RESET);
+    pprint("\tRED       \n"    ,RED);
+    pprint("\tGREEN     \n"  ,GREEN);
+    pprint("\tYELLOW    \n" ,YELLOW);
+    pprint("\tMAGENTA   \n",MAGENTA);
+    pprint("\tCYAN      \n\n"   ,CYAN);
 
-    printf("\tHIGHLIGHTED TEXT  %s\n\n",RESET);
-    printf("\t%sHIGHLIGHT RED       %s\n",HIGHLIGHT_RED,RESET);
-    printf("\t%sHIGHLIGHT GREEN     %s\n",HIGHLIGHT_GREEN,RESET);
-    printf("\t%sHIGHLIGHT YELLOW    %s\n",HIGHLIGHT_YELLOW,RESET);
-    printf("\t%sHIGHLIGHT MAGENTA   %s\n",HIGHLIGHT_MAGENTA,RESET);
-    printf("\t%sHIGHLIGHT CYAN      %s\n\n",HIGHLIGHT_CYAN,RESET);
+    pprint("\tHIGHLIGHTED TEXT  \n\n",RESET);
+    pprint("\tHIGHLIGHT RED       \n",HIGHLIGHT_RED);
+    pprint("\tHIGHLIGHT GREEN     \n",HIGHLIGHT_GREEN);
+    pprint("\tHIGHLIGHT YELLOW    \n",HIGHLIGHT_YELLOW);
+    pprint("\tHIGHLIGHT MAGENTA   \n",HIGHLIGHT_MAGENTA);
+    pprint("\tHIGHLIGHT CYAN      \n\n",HIGHLIGHT_CYAN);
 
-    printf("\tDARK COLORED TEXT  %s\n\n",RESET);
-    printf("\t%sDARK RED       %s\n",DARK_RED,RESET);
-    printf("\t%sDARK GREEN     %s\n",DARK_GREEN,RESET);
-    printf("\t%sDARK YELLOW    %s\n",DARK_YELLOW,RESET);
-    printf("\t%sDARK MAGENTA   %s\n",DARK_MAGENTA,RESET);
-    printf("\t%sDARK CYAN      %s\n\n",DARK_CYAN,RESET);
+    pprint("\tDARK COLORED TEXT  \n\n",RESET);
+    pprint("\tDARK RED       \n",DARK_RED);
+    pprint("\tDARK GREEN     \n",DARK_GREEN);
+    pprint("\tDARK YELLOW    \n",DARK_YELLOW);
+    pprint("\tDARK MAGENTA   \n",DARK_MAGENTA);
+    pprint("\tDARK CYAN      \n\n",DARK_CYAN);
 
-    printf("\tFONTS         %s\n\n",RESET);
-    printf("\t%sBOLD        %s\n",BOLD,RESET);
-    printf("\t%sCOURIER     %s\n",COURIER,RESET);
-    printf("\t%sUNDERLINED  %s\n",UNDERLINE,RESET);
-    printf("\t%sINVISIBLE   %s<-INVISBLE\n",INVISIBLE,RESET);
-    printf("\t%sDELETED     %s\n",DELETE,RESET);
+    pprint("\tFONTS         \n\n",RESET);
+    pprint("\tBOLD        \n",BOLD);
+    pprint("\tCOURIER     \n",COURIER);
+    pprint("\tUNDERLINED  \n",UNDERLINE);
+    pprint("\tINVISIBLE   <-INVISBLE\n",INVISIBLE);
+    pprint("\tDELETED     \n",DELETE);
 }
 
 // HOW I FOUND IT
@@ -90,6 +112,4 @@ void HOW_I_FOUND_IT(){
 }}
 
 #endif
-/* *! __call__ the Example or HOW_I_FOUND_IT function in your main file.
-this is a header file*/
 //! NOTE: ONLY WORKS ON EDITORS
